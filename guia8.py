@@ -11,9 +11,6 @@ def generar_numeros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila [int]
         cantidad -= 1
     return miPila
 
-x = generar_numeros_al_azar(5, 3, 13)
-#print(x.queue)
-
 def duplicar(p: Pila) -> Pila:
     paux = Pila()
     while (not p.empty()):
@@ -26,13 +23,6 @@ def duplicar(p: Pila) -> Pila:
         p.put(m)
     return duplicado 
 
-mipila = Pila()
-mipila.put(3)
-mipila.put(8)
-x = duplicar(mipila)
-#print(x.queue)
-
-
 def cantidad_elementos(p: Pila) -> int:
     ps = duplicar(p)
     contador: int = 0
@@ -40,11 +30,6 @@ def cantidad_elementos(p: Pila) -> int:
         ps.get()
         contador += 1
     return contador
-
-mipilar = Pila()
-mipilar.put(9)
-mipilar.put(11)
-#print(cantidad_elementos(mipilar))
 
 def buscar_el_maximo(p:Pila[int]) -> int:
     candidato: int = ps.get()
@@ -54,13 +39,6 @@ def buscar_el_maximo(p:Pila[int]) -> int:
        if elemento > candidato:
           candidato = elemento
     return candidato
-
-mipilare = Pila()
-mipilare.put(9)
-mipilare.put(89)
-mipilare.put(66)
-mipilare.put(12)
-#print(buscar_el_maximo(mipilare))
 
 def esta_bien_balanceada(s:str) -> bool:
     pila = Pila()
@@ -76,10 +54,6 @@ def esta_bien_balanceada(s:str) -> bool:
         return True
     else:
         return False
-#print(esta_bien_balanceada("1 + ( 2 x 3 - ( 2 0 / 5 ) )"))
-#print(esta_bien_balanceada("10 ∗ ( 1 + ( 2 ∗ ( −1)))"))
-#print(esta_bien_balanceada("1 + ) 2 x 3 ( ( )"))
-
 
 def pertenece (s: list, e) -> bool:
     longitud:int = len(s)
@@ -87,7 +61,6 @@ def pertenece (s: list, e) -> bool:
         if (e == s[n]):
           return True 
     return False
-
 
 def sacar_espacios(s:str) -> str:
     res: str = []
@@ -119,9 +92,7 @@ def evaluar_expresion(s:str) -> float:
             pila.put(res)
     pila.get(res)
     return res
-#print(evaluar_expresion("3 4 + 5 * 5 / 5 +"))
-#print(evaluar_expresion("3 7 +"))                
-                
+    
 # COLAS
 
 from queue import Queue as Cola
@@ -133,8 +104,6 @@ def generar_numeros_al_azar(cantidad: int, desde: int, hasta: int) -> Cola [int]
         cola.put(n)
         cantidad-=1
     return cola
-x=generar_numeros_al_azar(7, 2, 20)
-#print(x.queue)
 
 def duplicar_cola(c: Cola) -> Cola:
     caux = Cola()
@@ -168,12 +137,6 @@ def buscar_maximo_cola(c:Cola[int]) -> int:
         if elem > candidato:
             candidato = elem
     return candidato
-x = Cola()
-x.put(33)
-x.put(8)
-x.put(109)
-x.put(1)
-#print(buscar_maximo_cola(x))
 
 def pertenece_cola(c:Cola, i) -> bool:
     colaux = duplicar_cola(c)
@@ -193,9 +156,6 @@ def armar_secuencia_de_bingo() -> Cola[int]:
             res.put(n_azar)
             total-=1
     return res
-
-x = armar_secuencia_de_bingo()
-#print(x.queue)
 
 def jugar_carton_de_bingo(carton: list[int], bolillero: Cola[int]) -> int:
     jugadas: int = 0
@@ -219,11 +179,6 @@ def n_pacientes_urgentes(c: Cola[(int, str, str)]) -> str:
         if n[0] >0 and n[0] < 4:
                 contador +=1
     return contador
-cola = Cola()
-cola.put((5, "hola", "chau"))
-cola.put((2, "holanda", "chauu"))
-cola.put((1, "jeje", "a"))
-#print(n_pacientes_urgentes(cola))
 
 def atencion_a_clientes(c : Cola[(str, int, bool, bool)]) -> Cola[(str, int, bool, bool)]:
     copia: Cola = duplicar_cola(c)
@@ -247,26 +202,9 @@ def atencion_a_clientes(c : Cola[(str, int, bool, bool)]) -> Cola[(str, int, boo
         ordenada.put(k)
     return ordenada
 
-clientes = Cola()
-clientes.put(("Ana", 30, False, False))
-clientes.put(("Carlos", 70, False, False))
-clientes.put(("Beatriz", 28, True, False))
-clientes.put(("Daniel", 45, False, True))
-clientes.put(("Elena", 65, False, True))
-clientes.put(("Fernando", 50, False, False))
-cola_atendidos = atencion_a_clientes(clientes)
-#print(cola_atendidos.queue)
-
 # ARCHIVOS
 
 import typing
-
-#def contar_lineas(nombre_archivo: str) -> int:
- #   arch: typing.IO = open(nombre_archivo, "r")
-  #  res: int = len(arch.readlines())
-   # arch.close()
-    #return res
-#print(contar_lineas("hola.txt"))
 
 def separar_palabras(texto: str) -> list[str]:
     res: list[str] = []
@@ -280,7 +218,6 @@ def separar_palabras(texto: str) -> list[str]:
     if len(resaux) > 0:
         res.append(resaux)
     return res
-print(separar_palabras("hola  como anda usted"))
 
 def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
      arch: typing.IO = open(nombre_archivo, "r")
@@ -293,7 +230,6 @@ def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
                  res = True
      arch.close()
      return res
-#print(existe_palabra("hola", "hola.txt"))
 
 def cantidad_de_apariciones(nombr_archivo: str, palabra:str) -> int:
     arch: typing.IO = open(nombr_archivo, "r")
@@ -307,7 +243,6 @@ def cantidad_de_apariciones(nombr_archivo: str, palabra:str) -> int:
                 conteo += 1
     arch.close()
     return conteo
-#print(cantidad_de_apariciones("hola.txt", "san"))
 
 def es_comentario(linea: str) -> bool:
     for i in linea:
@@ -316,7 +251,6 @@ def es_comentario(linea: str) -> bool:
         elif i != " ":
             return False
     return False
-
 
 def clonar_sin_comentarios(nombre_archivo: str):
     archivo: typing.IO = open(nombre_archivo, "r")
@@ -337,12 +271,7 @@ def invertir_lineas(nombre_archivo: str) -> None:
     for i in range (longitud-1, -1, -1):
         reverso.write(lineas[i])
     reverso.close()
-    # PARA PROBAR SI ANDA:
-    reverso = open('reverso.txt', "r")
-    print(reverso.readlines())
-    reverso.close()
-#invertir_lineas("hola.txt")
-
+    
 def agregar_frase_al_final(nombre_archivo: str, frase: str) -> None:
     arch: typing.IO = open(nombre_archivo, "r")
     lineas: list[str] = arch.readlines()
@@ -353,8 +282,6 @@ def agregar_frase_al_final(nombre_archivo: str, frase: str) -> None:
     arch.write(frase)
     arch.close()
 
-#agregar_frase_al_final("hola.txt", " perro")
-
 def agregar_frase_al_principio(nombre_archivo: str, frase: str) -> None:
     arch: typing.IO = open(nombre_archivo, "r")
     lineas: list[str] = arch.readlines()
@@ -364,7 +291,6 @@ def agregar_frase_al_principio(nombre_archivo: str, frase: str) -> None:
     for linea in lineas:
       arch.write(linea)
     arch.close()
-#agregar_frase_al_principio("hola.txt", "SAPE LOQUITA ")
 
 def es_legible(char: str) -> bool:
     res: bool = False
@@ -452,8 +378,6 @@ def palabras_archivo(nombre_archivo: str) -> list[str]:
     archivo.close()
     return palabras
 
-print(palabras_archivo("hola.txt"))
-
 def agrupar_por_longitud(nombre_archivo: str) -> dict:
     listapalabras: list[str] = palabras_archivo(nombre_archivo)
     resultado: dict[int, int] = dict()
@@ -464,7 +388,6 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
         else:
             resultado[largo_palabra] = 1
     return resultado
-print(agrupar_por_longitud("hola.txt"))
 
 def calcular_promedio_por_estudiante(nombre_archivo_notas: str) -> dict[str, float]:
     res: dict[str, float] = dict()
@@ -497,7 +420,6 @@ def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
             mayor = repeticiones[clave]
             clave_candidato = clave
     return clave_candidato
-print(la_palabra_mas_frecuente("hola.txt"))
 
 def visitar_sitio(historiales:dict[str, Pila[str]], usuario:str, sitio:str) -> None:
         if not usuario in historiales.keys():
@@ -545,16 +467,5 @@ def calcular_valor_inventario(inventario:dict[str, dict:[str, int]]) -> float:
     for clave in inventario.keys():
         total += cantidad_x_precio(inventario[clave])
     return total
-
-
-inventario = {}
-agregar_producto(inventario, "papasfritas", 2000, 3)
-agregar_producto(inventario, "carnedepinguino", 30000, 5)
-agregar_producto(inventario, "heladodefernet", 900, 11)
-print(inventario.keys())
-print(inventario.values())
-actualizar_stock(inventario, "papasfritas", 30)
-print (inventario.values())
-print(calcular_valor_inventario(inventario))
 
 
