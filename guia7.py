@@ -8,8 +8,6 @@ def pertenece (s: list[int], e: int) -> bool:
           return True 
     return False
 
-#print(pertenece([1, 2, 3], 5))
-
 def pertenecev2(s:list[int], e: int) -> bool:
     indice: int = 0
     longitud:int = len(s)
@@ -18,7 +16,6 @@ def pertenecev2(s:list[int], e: int) -> bool:
             return True
         indice += 1
     return False
-#print(pertenecev2([1, 2, 3], 3))
 
 def divide_a_todos(s:list[int], e:int) -> bool:
     indice = 0
@@ -27,7 +24,6 @@ def divide_a_todos(s:list[int], e:int) -> bool:
         if (s[i] % e != 0):
            return False
     return True
-#print(divide_a_todos([2, 4, 6, 8, 22], 2))
 
 def suma_total(s:list[int]) -> int:
     indice: int = 0
@@ -46,7 +42,6 @@ def suma_totalv2(s:list[int]) -> int:
         sumatotal: int = sumatotal + s[indice]
         indice += 1
     return sumatotal
-#print(suma_totalv2([2, 3, 5, 7, 30]))
 
 def ordenados(s:list[int]) -> bool:
     indice: int = 0
@@ -55,7 +50,6 @@ def ordenados(s:list[int]) -> bool:
         if (s[i] >= s[i +1 ]):
             return False
     return True
-#print(ordenados([1, 2, 3, 4, 5, 6]))
 
 def long_mayor_7(s:list[str]):
     indice: int = 0
@@ -65,8 +59,6 @@ def long_mayor_7(s:list[str]):
             return True
         indice += 1
     return False
-
-#print(long_mayor_7(["hola", "pepe", "pejelagarto"]))
 
 def invertir(texto:str) -> str:
     inverso = ""
@@ -81,7 +73,6 @@ def palindromo(palabra: str) -> bool:
         return True
     else:
         return False
-#print(palindromo("moiom"))
 
 def fortaleza_contraseña(contraseña: list) -> str:
     longitud: int = len(contraseña)
@@ -101,8 +92,6 @@ def fortaleza_contraseña(contraseña: list) -> str:
     else:
         return "ROJA"
 
-#print(fortaleza_contraseña("martin123"))
-
 def cuenta_bancaria(s:list[tuple[str, int]]) -> int:
     total: int = 0
     indice: int = 0
@@ -113,7 +102,6 @@ def cuenta_bancaria(s:list[tuple[str, int]]) -> int:
         if ((s[n])[0] == "R"):
             total = total - (s[n])[1]
     return total
-#print(cuenta_bancaria([("I", 2000), ("R", 20),("R", 1000),("I", 300)]))
 
 def tres_vocales_distintas(palabra:str) -> bool:
     total: int = 0
@@ -131,8 +119,6 @@ def tres_vocales_distintas(palabra:str) -> bool:
             return True
     else:
             return False
-    
-#print(tres_vocales_distintas("holaa"))
         
 # SEGUNDA PARTE
 
@@ -147,8 +133,6 @@ def reemplazar_par_por_0v2(s:list[int]) -> list[int]:
                nuevo = nuevo + [s[n]]
      return nuevo 
 
-#print(reemplazar_par_por_0v2([1,2,3,4,5,6,7,8]))
-
 def reemplazar_par_por_0(s:list[int]) -> list[int]:
      indice: int = 0
      longitud: int = len(s)
@@ -156,8 +140,6 @@ def reemplazar_par_por_0(s:list[int]) -> list[int]:
           if (s[n] % 2 == 0):
                s[n] = 0
      return s
-
-#print(reemplazar_par_por_0([1,2,3,4,5,6,7,8]))
 
 def es_vocal(letra: str) -> bool:
      if letra == "a":
@@ -184,8 +166,6 @@ def sin_vocales(palabra:str) -> str:
                nuevapalabra
      return nuevapalabra
 
-#print(sin_vocales("murcielago"))
-
 def dar_vuelta_str(a:str) -> str:
      longitud: int = len(a)
      indice: int = 0
@@ -194,7 +174,6 @@ def dar_vuelta_str(a:str) -> str:
           res = res + [a[longitud - indice - 1]]
           indice += 1
      return res
-#print(dar_vuelta_str("hola"))
      
 def es_repetido(s:str, t:str) -> bool:
      indice: int = 0
@@ -217,9 +196,7 @@ def eliminar_repetidos(s:str) -> str:
                     sinrepetir = sinrepetir + [s[n]]
      return sinrepetir
 
-#print(eliminar_repetidos("hholaa"))
-
-# EJERCICIO TRES
+# TERCERA PARTE
 
 def notas_mayora4(n:list[int]) -> bool:
      indice: int = 0
@@ -236,7 +213,6 @@ def promedio_notas(s:list[int]) -> int:
      for i in range (indice, longitud):
           total = total + s[i]
      return total / longitud
-#print(promedio_notas([1, 2, 3, 4, 5]))
           
 def aprobado(s:list[int]) -> int:
      if (notas_mayora4(s) and promedio_notas(s) >= 7):
@@ -247,7 +223,7 @@ def aprobado(s:list[int]) -> int:
           return 3
 #print(aprobado([4, 3, 6, 4, 7]))
 
-# EJERCICIO CUATRO
+# CUARTA PARTE
 
 def estudiantes() -> list[str]:
      estudiantes_ingresados: list[str] = []
@@ -276,48 +252,31 @@ def historial_SUBE() -> list[tuple[str, int]]:
                historial.append(("D", descontar))
      return historial 
 
-
-
-
-
-# EJERCICIO CINCO
+# QUINTA PARTE
 
 def pertenece_a_cada_uno_v1(s:list[list[int]], e:int, res:list[bool]) -> None:
      res.clear()
      for n in s:
             res.append(pertenece(n, e))
 
-#lista = [[1, 2], [3, 2], [33, 22]]
-#resultado = []
-#pertenece_a_cada_uno_v1(lista, 2, resultado)
-#print (resultado)
-
-# EJERCICIO SEIS 
+# SEXTA PARTE
 def es_matriz(s:list[list[int]]) -> bool:
     res = True
     for n in s:
          if (len(n) != len(s[0])): 
                res = False
     return res
-#print(es_matriz([[1, 2], [3, 2], [33, 22]]))
 
 def filas_ordenadas(s:list[list[int]], res:list[bool]) -> None:
      res.clear()
      for n in s:
           res.append(ordenados(n))
 
-matriz = [[1, 2], [3, 2], [33, 22]]
-resultado = []
-filas_ordenadas(matriz, resultado)
-#print (resultado)
-
 def columna_de_matriz(m:list[list[int]], columna: int) -> list[int]:
      columna_res: list[int] = []
      for fila in m:
           columna_res.append(fila[columna]) 
      return columna_res
-
-#print(columna_de_matriz([[1, 2, 3, 4], [2, 4, 6, 4], [9, 8, 9 , 8]], 3))
 
 def sumar_columnas_matriz(m: list[list[int]]) -> list[int]:
      cant_colum: int = len(m[0])
@@ -333,9 +292,6 @@ def sumar_columnas_matriz(m: list[list[int]]) -> list[int]:
           total_aux = 0
      return res
 
-#print(sumar_columnas_matriz([[1, 2, 3, 4], [2, 4, 6, 4], [9, 8, 9 , 8]]))
-
-def elevar_matriz(d: int, p: int) -> list[list[int]]:
 
 
 
